@@ -71,6 +71,21 @@ cp .env.example .env
 # Start everything
 docker-compose up --build
 
+# DB table create SQL Schema
+docker exec -it slimphp_db psql -U postgres -d tasks_db
+
+CREATE TABLE IF NOT EXISTS tasks (
+    id SERIAL PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    description TEXT,
+	completed BOOLEAN DEFAULT FALSE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+# for check table structure
+\d tasks 
+
 # Access the API
 http://localhost:8080/tasks
 
