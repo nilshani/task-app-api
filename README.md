@@ -62,8 +62,58 @@ A simple RESTful Task Manager API built with SlimPHP, PostgreSQL, and Docker.
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/slim-task-api.git
+git clone https://github.com/nilshani/slim-task-api.git
 cd slim-task-api
+
+# Copy environment file
+cp .env.example .env
+
+# Start everything
+docker-compose up --build
+
+# Access the API
+http://localhost:8080/tasks
+
+# All routes are protected by a simple API key.
+X-API-Key: secret123
+
+# Set your key in the .env file:
+API_KEY=secret123
+
+# All endpoints
+# Get all tasks (with pagination)
+GET http://localhost:8080/tasks?page=1&limit=5
+
+# Get a task by ID
+GET http://localhost:8080/tasks/1
+
+# Create a task
+POST http://localhost:8080/tasks
+Content-Type: application/json
+
+{
+  "title": "New Task",
+  "description": "Optional details",
+  "completed": false
+}
+
+# Update a task
+PUT http://localhost:8080/tasks/1
+Content-Type: application/json
+
+{
+  "title": "Updated Task",
+  "description": "Something changed",
+  "completed": true
+}
+
+# Delete a task
+DELETE http://localhost:8080/tasks/1
+
+
+
+
+
 
 
 
