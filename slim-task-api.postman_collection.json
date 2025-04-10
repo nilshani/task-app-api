@@ -1,0 +1,134 @@
+{
+	"info": {
+		"_postman_id": "12b60d11-4fc0-40ba-a02e-5bff27121079",
+		"name": "slim-task-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "951558"
+	},
+	"item": [
+		{
+			"name": "GET",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": {
+						"key": "X-API-Key",
+						"value": "secret123"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/tasks?page=1&limit=10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tasks"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CREATE",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": {
+						"key": "X-API-Key",
+						"value": "secret123"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Clean the house\",\r\n    \"description\": \"Living room and kitchen\",\r\n    \"completed\": false\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/tasks"
+			},
+			"response": []
+		},
+		{
+			"name": "GET BY ID",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": {
+						"key": "X-API-Key",
+						"value": "secret123"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/tasks/2"
+			},
+			"response": []
+		},
+		{
+			"name": "UPDATE",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": {
+						"key": "X-API-Key",
+						"value": "secret123"
+					}
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\" : \"Finish coding test update\",\r\n    \"description\" : \"Complete\",\r\n    \"completed\" : false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/tasks/1"
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": {
+						"key": "X-API-Key",
+						"value": "secret123"
+					}
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": "http://localhost:8080/tasks/4"
+			},
+			"response": []
+		}
+	]
+}
