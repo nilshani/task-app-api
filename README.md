@@ -110,6 +110,9 @@ Content-Type: application/json
 # Delete a task
 DELETE http://localhost:8080/tasks/1
 
+### slim-task-api.postman_collection postman collection is added in root folder if needed
+
+
 
 
 
